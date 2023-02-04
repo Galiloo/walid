@@ -11,8 +11,6 @@ const sendEmail = asyncHandler(async (data, req, res) => {
     },
     tls: {
       rejectUnauthorized: false,
-      requestCert: true,
-      agent: false,
     },
   });
 
@@ -22,7 +20,7 @@ const sendEmail = asyncHandler(async (data, req, res) => {
     to: data.to, // list of receivers
     subject: data.subject, // Subject line
     text: data.text, // plain text body
-    html: data.htm, // html body
+    html: data.html, // html body
   });
 
   console.log("Message sent: %s", info.messageId);
